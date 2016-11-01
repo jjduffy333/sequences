@@ -1,13 +1,9 @@
 <h1>A Quick Puzzle to Test Your Problem Solving</h1>
 
 <p>A short game sheds light on government policy, corporate America and why no one likes to be wrong.</p>
-
 <p>Here’s how it works:</p>
-
 <p>We’ve chosen a rule that some sequences of three numbers obey — and some do not. Your job is to guess what the rule is.</p>
-
 <p>We’ll start by telling you that the sequence 2, 4, 8 obeys the rule:</p>
-
 <ul>
   <li>
     2, 4, 8 Obeys the rule
@@ -16,16 +12,21 @@
 
 <p>Now it’s your turn. Enter a number sequence in the boxes below, and we’ll tell you whether it satisfies the rule or not. You can test as many sequences as you want.</p>
 
-<ul>
-  <li>
+<% @list.each do |guess| %>
+ <li>
+ <%= guess.first_num %>
+ <%= guess.second_num %>
+ <%= guess.third_num %>
+ </li>
+ <% end %>
 
-    <%=params["first_number"]%>, <%=params["second_number"]%>, <%=params["third_number"]%>
-
-     <% if params["first_number"] < params["second_number"] < params["third_number"]&&
-
-  </li>
-
-</ul>
+ <ul>
+   <li type="disc">1, 2, 3 Yes!</li>
+   <li type="disc">2, 4, 3 No.</li>
+   <li type="disc">83838, 85754839, 94899504 Yes!</li>
+   <li type="disc"><%= @first %> ,<%= @second %>,<%= @third %>
+    </li>
+ </ul>
 
 <form action="/all_guesses">
   <p>
